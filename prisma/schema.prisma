@@ -23,5 +23,5 @@ model Notes {
     title     String
     content   String
     author    String
-    published Boolean  @default(false)
+    completed Boolean  @default(false)
 }
