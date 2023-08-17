@@ -22,4 +22,9 @@ export const notesRouter = createTRPCRouter({
       where: { id: input.id },
     });
   }),
+  createNote: publicProcedure.input(z.object({ title: z.string(), content: z.string() })).mutation(({ ctx, input }) => {
+    return ctx.prisma.notes.create({
+      data: { title: input.title, content: input.content, author: '' },
+    });
+  }),
 });

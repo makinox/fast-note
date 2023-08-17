@@ -26,15 +26,15 @@ export const NoteCard = ({ title, content, id, completed, onSuccess }: NoteCardP
       <div className="mt-4 flex justify-between">
         {completed ? (
           <button className="btn btn-info btn-sm" onClick={handleUnComplete}>
-            {completeMutation.isLoading ? 'Descompletando...' : 'Completado'}
+            {completeMutation.isLoading ? 'Loading...' : 'Completed'}
           </button>
         ) : (
           <button className="btn btn-accent btn-sm" onClick={handleComplete}>
-            {unCompleteMutation.isLoading ? 'Completando...' : 'Completar'}
+            {unCompleteMutation.isLoading ? 'Loading...' : 'Complete'}
           </button>
         )}
         <button className="btn btn-error btn-sm" onClick={handleDelete}>
-          {deleteMutation.isLoading ? 'Eliminando...' : 'Eliminar'}
+          {deleteMutation.isLoading ? 'Loading...' : 'Eliminar'}
         </button>
       </div>
     </article>

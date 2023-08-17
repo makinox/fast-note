@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import Head from 'next/head';
 
 import { api } from '@/utils/api';
 import { NoteCard } from '@/components/noteCard';
+import { AddNoteForm } from '@/components/AddNoteForm';
 
 const classes = {
   container: 'flex min-h-screen flex-col items-center justify-center bg-base-200',
@@ -10,6 +12,7 @@ const classes = {
 };
 
 export default function Home() {
+  const [active, setActive] = useState(false);
   const notes = api.notes.getAllNotes.useQuery();
 
   return (
@@ -22,11 +25,14 @@ export default function Home() {
       <main className={classes.container}>
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>Notes</h1>
-          <button className="btn btn-primary">Crear nota</button>
+          <button className="btn btn-primary" onClick={() => setActive((prev) => !prev)}>
+            Crear nota
+          </button>
         </div>
+        <section className="mb-8 min-h-[72px]">{active && <AddNoteForm onSuccess={() => notes.refetch()} />}</section>
         {notes.isLoading && <span>Loading...</span>}
         {notes.isError && <span>Error: {notes.error.message}</span>}
-        <section className="flex gap-4">
+        <section className="flex flex-wrap justify-center gap-4">
           {notes.data?.map((note) => (
             <NoteCard key={note.id} {...note} onSuccess={() => notes.refetch()} />
           ))}
