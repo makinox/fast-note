@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 
 import { api } from '@/utils/api';
-import { NoteCard } from '@/components/noteCard';
+import { NoteCard } from '@/components/NoteCard';
 import { AddNoteForm } from '@/components/AddNoteForm';
 
 const classes = {
