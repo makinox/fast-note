@@ -25,7 +25,7 @@
     "max-lines": ["error", 350],
     "complexity": ["error", 7],
     "@typescript-eslint/no-unused-vars": [
-      "warning",
+      "warn",
       {
         "argsIgnorePattern": "^_"
       }
