@@ -17,7 +17,16 @@ An app to show tRPC powers
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies
+
+2. Prepare the local database
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
